@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-import add_0
+import add_0 as add
 
-add = add_0.add
+add = add.add
 
-add_0.a = 1
-add_0.b = 2
+add.a = 1
+add.b = 2
 
-a = add_0.a
-b = add_0.b
+a = add.a
+b = add.b
 print("{} + {} = {}".format(a, b, add(a, b)))
