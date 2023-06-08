@@ -1,7 +1,8 @@
 #!/usr/bin/python3
+# RAYANE - MAD
 
 if __name__ == "__main__":
-
+    """Print arguments"""
     import sys
 
     n = len(sys.argv) - 1
@@ -11,5 +12,7 @@ if __name__ == "__main__":
         print("1 argument:")
     else:
         print("{} arguments:".format(n))
+
     for x in range(n):
         print("{}: {}".format(x + 1, sys.argv[x + 1]))
+
