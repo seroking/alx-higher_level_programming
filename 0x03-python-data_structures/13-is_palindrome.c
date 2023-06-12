@@ -1,74 +1,22 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "lists.h"
+#include <stdlib.h>
 
-/**
- * print_listint - prints elements of a list
- * @h:  head of list
- * Return: num of nodes
- */
-size_t print_listint(const listint_t *h)
+int is_palindrome(listint_t **head)
 {
-	const listint_t *current;
-	unsigned int n; /* num of nodes */
+	listint_t *curr = *head;
+	static listint_t *tmp;
 
-	current = h;
-	n = 0;
-	while (current != NULL)
+	if (curr == NULL)
+		return (1);
+
+	if (tmp == NULL)
+		tmp = curr;
+
+	if (is_palindrome(&curr->next) && tmp->n == curr->n)
 	{
-		printf("%i\n", current->n);
-		current = current->next;
-		n++;
+		tmp = tmp->next;
+		return (1);
 	}
-
-	return (n);
-}
-
-/**
- * add_nodeint_end - add a new node at the end of a list
- * @head: double pointer of first node of  list
- * @n: integer in new node
- * Return: address of  new element or NULL
- */
-listint_t *add_nodeint_end(listint_t **head, const int n)
-{
-	listint_t *new;
-	listint_t *current;
-
-	current = *head;
-
-	new = malloc(sizeof(listint_t));
-	if (new == NULL)
-		return (NULL);
-
-	new->n = n;
-	new->next = NULL;
-
-	if (*head == NULL)
-		*head = new;
 	else
-	{
-		while (current->next != NULL)
-			current = current->next;
-		current->next = new;
-	}
-
-	return (new);
-}
-
-/**
- * free_listint - frees a list
- * @head: pointer to the list
- * Return: no value to return
- */
-void free_listint(listint_t *head)
-{
-	listint_t *current;
-
-	while (head != NULL)
-	{
-		current = head;
-		head = head->next;
-		free(current);
-	}
+		return (0);
 }
