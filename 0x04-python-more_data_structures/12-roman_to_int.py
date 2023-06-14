@@ -4,7 +4,7 @@ def roman_to_int(roman_string):
     if roman_string is not str or roman_string is None:
         return 0
 
-    decs = [roman_dec[x] for x in roman_string]
+    decs = [roman_num[x] for x in roman_string]
 
     num = 0
 
