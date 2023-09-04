@@ -1,18 +1,19 @@
 #!/usr/bin/python3
 """
-module : 1-rectangle.py
+Module : 1-rectangle.py
+class Rectangle
 """
 
 
 class Rectangle:
     """
-    define a class with private attributes.
+    Define a class with private attributes.
 
-    args:
-        width : (int)
-        height : (int)
+    Args:
+        width (int): width
+        height (int): height
 
-    functions:
+    Functions:
         __init__(self, width,height)
         width(self)
         width(self, value)
@@ -25,7 +26,6 @@ class Rectangle:
         self.__width = width
         self.__height = height
 
-
     @property
     def width(self):
         """ retrieve width of rectangle """
@@ -33,7 +33,7 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        """ set the width of the rectangle"""
+        """ set the width of the rectangle """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
