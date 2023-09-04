@@ -3,6 +3,7 @@
 module : 1-rectangle.py
 """
 
+
 class Rectangle:
     """
     define a class with private attributes.
@@ -23,6 +24,8 @@ class Rectangle:
         """ initialise the instance of the rectangle """
         self.__width = width
         self.__height = height
+
+
     @property
     def width(self):
         """ retrieve width of rectangle """
@@ -33,10 +36,9 @@ class Rectangle:
         """ set the width of the rectangle"""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
-        elif value < 0:
+        if value < 0:
             raise ValueError("width must be >= 0")
-        else:
-            self.__width = value
+        self.__width = value
 
     @property
     def height(self):
@@ -45,10 +47,9 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        """ set the height of the rectangle"""
+        """ set the height of the rectangle if type = int and value > 0"""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
-        elif value < 0:
+        if value < 0:
             raise ValueError("height must be >= 0")
-        else:
             self.__height = value
