@@ -23,10 +23,10 @@ class Rectangle:
         perimeter(self)
         __str__(self)
         __rep__(self)
-        __del__(self)
     """
     number_of_instances = 0
     print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         """ initialize rectangle """
         self.width = width
@@ -77,12 +77,11 @@ class Rectangle:
         return ((self.__width + self.__height) * 2)
 
     def __str__(self):
-        """ print the rectangle with # """
+        """ print the rectangle with '#' """
         if self.__width == 0 or self.__height == 0:
             return ""
-        rec = "\n".join([str(self.print_symbol) * self.__width
-                         for rows in range(self.__height)])
-        return rec
+        rect = "\n".join([str(self.print_symbol) * self.__width for rows in range(self.__height)])
+        return rect
 
     def __repr__(self):
         """ String representation of the class """
