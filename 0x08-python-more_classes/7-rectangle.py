@@ -23,6 +23,7 @@ class Rectangle:
         perimeter(self)
         __str__(self)
         __rep__(self)
+        __del__(self)
     """
     number_of_instances = 0
     print_symbol = "#"
