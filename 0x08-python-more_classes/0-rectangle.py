@@ -4,8 +4,10 @@
     contains class rectangle
     empty class
 """
+
 class Rectangle():
     """
     Define an empty class : rectangle
     """
+
     pass
