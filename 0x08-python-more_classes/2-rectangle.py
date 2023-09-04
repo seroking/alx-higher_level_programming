@@ -19,6 +19,8 @@ class Rectangle:
         width(self, value)
         height(self)
         height(self, value)
+        area(self)
+        perimeter(self)
     """
 
     def __init__(self, width=0, height=0):
