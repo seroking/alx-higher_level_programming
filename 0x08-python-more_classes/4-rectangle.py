@@ -22,6 +22,7 @@ class Rectangle:
         area(self)
         perimeter(self)
         __str__(self)
+        __rep__(self)
     """
 
     def __init__(self, width=0, height=0):
@@ -74,3 +75,7 @@ class Rectangle:
             return ""
         rect = "\n".join(["#" * self.__width for rows in range(self.__height)])
         return rect
+
+    def __repr__(self):
+        """ String representation of the class """
+        return "Rectangle({:d}, {:d})".format(self.width, self.height)
