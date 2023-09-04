@@ -76,11 +76,12 @@ class Rectangle:
         return ((self.__width + self.__height) * 2)
 
     def __str__(self):
-        """ print the rectangle with '#' """
+        """ print the rectangle with # """
         i = 0
         if self.__width == 0 or self.__height == 0:
             return ""
-        rect = "\n".join([str(self.print_symbol) * self.__width for rows in range(self.__height)])
+        rect = "\n".join([str(self.print_symbol) * self.__width
+                         for rows in range(self.__height)])
         return rect
 
     def __repr__(self):
