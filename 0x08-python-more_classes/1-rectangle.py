@@ -22,7 +22,7 @@ class Rectangle:
     """
 
     def __init__(self, width=0, height=0):
-        """ initialise the instance of the rectangle """
+        """ initialize rectangle """
         self.__width = width
         self.__height = height
 
