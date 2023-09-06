@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ LockedClass
 """
-
-
 class LockedClass:
-    __slots__= ['first_name']
+            if name != "first_name" and hasattr(self, name):
+                pass
+        super().__setattr__(name, value)
