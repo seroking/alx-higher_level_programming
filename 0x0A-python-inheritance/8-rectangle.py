@@ -2,7 +2,7 @@
 """
 module : '8-rectangle.py'
 class:
-    Rectangle
+    class Rectangle
 """
 
 
