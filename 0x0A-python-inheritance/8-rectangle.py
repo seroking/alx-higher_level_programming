@@ -3,8 +3,6 @@
 
 class:
     Rectangle
-functions:
-    __init__
 """
 
 
