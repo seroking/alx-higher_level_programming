@@ -11,9 +11,8 @@ classes :
 
 class MyList(list):
     """
-     class MyList inherits from list
+     subclass MyList inherits from list
     """
-
     def print_sorted(self):
         """
         function print the list in ascending sort
