@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-""" class Rectangle that inherits from BaseGeometry
-
+"""
+module : '8-rectangle.py'
 class:
     Rectangle
 """
