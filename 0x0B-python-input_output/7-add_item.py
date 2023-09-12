@@ -16,6 +16,6 @@ except FileNotFoundError:
     items = []
 
 for i in range(0, len(argv)):
-    items.append(argv)
+    items.append(argv[i])
 
 save_to_json_file(items, filename)
