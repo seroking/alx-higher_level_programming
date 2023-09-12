@@ -9,4 +9,4 @@ Functions:
 def to_json_string(my_obj):
     """ return JSON representation """
     import json
-    return(json.dumps(my_obj))
+    return json.dumps(my_obj)
