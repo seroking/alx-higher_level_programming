@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """ module : 7-add_item.py"""
 
-
-
 from sys import argv
 
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
