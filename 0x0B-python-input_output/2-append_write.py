@@ -8,7 +8,7 @@ functions:
 
 def append_write(filename="", text=""):
     """ appen text to a file"""
-    with open(filename , "a", encoding="UTF-8") as f:
+    with open(filename, "a", encoding="UTF-8") as f:
         a_file = f.write(text)
 
     return a_file
