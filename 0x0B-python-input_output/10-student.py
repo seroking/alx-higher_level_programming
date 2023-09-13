@@ -18,6 +18,8 @@ class Student:
             cond2 = not callable(getattr(self, item))
             if type(attrs) is list:
                 cond3 = item in attrs
+            else:
+                cond3 = True
             if cond1 and cond2 and cond3:
                 my_dict[item] = getattr(self, item)
 
