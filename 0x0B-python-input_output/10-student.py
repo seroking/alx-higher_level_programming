@@ -10,7 +10,7 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
+    def to_json(self, attrs=None):
         """ retrieves a json repr of dictionary of student"""
         my_dict = {}
         for item in dir(self):
