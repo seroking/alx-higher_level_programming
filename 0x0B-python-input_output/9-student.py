@@ -14,8 +14,10 @@ class Student:
         """ retrieves a json repr of dictionary of student"""
         my_dict = {}
         for item in dir(self):
-            if (not item.startswith("__")) /
-            and (not callable(getattr(self, item))):
+            cond1 = not item.startswith("__")
+            cond2 = not callable(getattr(self, item))
+
+            if cond1 and cond2:
                 my_dict[item] = getattr(self, item)
 
         return my_dict
