@@ -76,10 +76,9 @@ class Base:
     def load_from_file(cls):
         """ load json str from a jsonfile"""
         filename = cls.__name__ + ".json"
-        if not filename:
+        try:
+            with open(filename, "r") as jsonfile:
+                list_dicts = Base.from_json_string(jsonfile.read())
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
             return []
-        else:
-            with open(filename, "r", encoding="UTF-8") as f:
-                read_json = f.read()
-                dict_list = Base.from_json_string(read_json)
-                return [cls.create(**d) for d in dict_list]
