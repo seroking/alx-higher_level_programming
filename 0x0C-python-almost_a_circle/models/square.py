@@ -6,25 +6,59 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """ representaion of a square"""
-    def __init__(self, size, x=0, y=0, id=None):
+    """
+    defines a class Square; inherits from class Rectangle
+    Inherited Attributes:
+        id
+        __weight
+        __height
+        __x
+        __y
+    Class Attributes:
+        size
+    Inherted Methods:
+        Base.init(self, id=None)
+        Rectangle.init(self, width, height, x=0, y=0, id=None)
+        update(self, *args, **kwargs)
+        width(self)
+        width(self, value)
+        height(self)
+        height(self, value)
+        x(self)
+        x(self, value)
+        y(self)
+        y(self, value)
+        area(self)
+        display(self)
+    Methods:
+        __str__
+        __init__(self, size, x=0, y=0, id=None)
+        update(self, *args, **kwargs)
+        size(self)       size(self, value)
+        to_dictionary(self)
+    """
+        def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
         self.size = size
 
     @property
     def size(self):
+        """ getter size"""
         return self.width
 
     @size.setter
     def size(self, value):
+        """ setter size"""
         self.width = value
         self.height = value
 
     def __str__(self):
+        """ str representation"""
         return ("[square] ({}) {}/{} - {}").format(self.id,
                                                    self.x, self.y, self.size)
 
     def update(self, *args, **kwargs):
+        """ update all attributes"""
         if args:
             if len(args) >= 1:
                 self.id = args[0]
@@ -45,5 +79,6 @@ class Square(Rectangle):
                 self.y = kwargs["y"]
 
     def to_dictionary(self):
+        """ attributes to dictionary"""
         return {"id": self.id, "x": self.x,
                 "size": self.size, "y": self.y}
