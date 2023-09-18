@@ -68,14 +68,15 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         """ update all attributes"""
         if args:
-            if len(args) >= 1:
-                self.id = args[0]
-            if len(args) >= 2:
-                self.size = args[1]
-            if len(args) >= 3:
-                self.x = args[2]
-            if len(args) >= 4:
-                self.y = args[3]
+            for k, val in enumerate(args):
+                if k == 0:
+                    self.id = val
+                elif k == 1:
+                    self.size = val
+                elif k == 2:
+                    self.x = val
+                else:
+                    self.y = val
         else:
             if "id" in kwargs:
                 self.id = kwargs["id"]
