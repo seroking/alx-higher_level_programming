@@ -47,21 +47,20 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """ save the json str on a file"""
-        objs = []
-        if list_objs is not None:
-            for o in list_objs:
-                objs.append(cls.to_dictionary(o))
         filename = cls.__name__ + ".json"
-        with open(filename, "w") as f:
-            f.write(cls.to_json_string(objs))
+        with open(filename, "w") as jsonfile:
+            if list_objs is None:
+                jsonfile.write("[]")
+            else:
+                list_dicts = [obj.to_dictionary() for obj in list_objs]
+                jsonfile.write(Base.to_json_string(list_dicts))
 
     @staticmethod
     def from_json_string(json_string):
         """load a json string """
-        if json_string is None or json_string == "":
+        if json_string is None or json_string == "[]":
             return []
-        else:
-            return json.loads(json_string)
+        return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
