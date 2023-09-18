@@ -4,6 +4,7 @@
 
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     """ representaion of a square"""
     def __init__(self, size, x=0, y=0, id=None):
@@ -20,13 +21,13 @@ class Square(Rectangle):
         self.height = value
 
     def __str__(self):
-        return ("[square] ({}) {}/{} - {}").format(
-        self.id, self.x, self.y ,self.size)
+        return ("[square] ({}) {}/{} - {}").format(self.id,
+                                                   self.x, self.y, self.size)
 
     def update(self, *args, **kwargs):
         if args:
             if len(args) >= 1:
-               self.id = args[0]
+                self.id = args[0]
             if len(args) >= 2:
                 self.size = args[1]
             if len(args) >= 3:

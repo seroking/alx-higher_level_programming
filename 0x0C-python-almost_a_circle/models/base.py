@@ -9,6 +9,7 @@ classes:
 
 import json
 
+
 class Base:
     """
     defines Base
@@ -38,7 +39,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """ transform a dictionnary into json str"""
-        if not list_dictionaries or list_dictionaries == []:
+        if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         else:
             return json.dumps(list_dictionaries)
@@ -48,7 +49,7 @@ class Base:
         """ save the json str on a file"""
         filename = cls.__name__ + ".json"
         with open(filename, "w", encoding="UTF-8") as jsonfile:
-            if list_objs == None:
+            if list_objs is None:
                 return []
             else:
                 list_dicts = [obj.to_dictionary() for obj in list_objs]
@@ -76,7 +77,7 @@ class Base:
         if not filename:
             return []
         else:
-           with open(filename, "r", encoding="UTF-8") as f:
-               read_json = f.read()
-               dict_list = Base.from_json_string(read_json)
-               return [cls.create(**d) for d in dict_list]
+            with open(filename, "r", encoding="UTF-8") as f:
+                read_json = f.read()
+                dict_list = Base.from_json_string(read_json)
+                return [cls.create(**d) for d in dict_list]
