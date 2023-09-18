@@ -4,15 +4,26 @@ modules : base.py
 
 classes:
     Base
-functions:
-    def __init__(self, id=None)
 """
 
 
 import json
 
 class Base:
-    """ Base class representation """
+    """
+    defines Base
+    Class Attributes:
+        __nb_objects
+    Methods:
+        __init__(self, id=None)
+    Static Methods:
+        to_json_string(list_dictionaries)
+        from_json_string(json_string)
+    Class Methods:
+        save_to_file(cls, list_objs)
+        load_from_file(cls)
+        create(cls, **dictionary)
+    """
     __nb_objects = 0
 
     def __init__(self, id=None):
@@ -24,7 +35,9 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
+    @staticmethod
     def to_json_string(list_dictionaries):
+        """ transform a dictionnary into json str"""
         if not list_dictionaries or list_dictionaries == []:
             return "[]"
         else:
@@ -32,9 +45,38 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        if list_objs == None:
+        """ save the json str on a file"""
+        filename = cls.__name__ + ".json"
+        with open(filename, "w", encoding="UTF-8") as jsonfile:
+            if list_objs == None:
+                return []
+            else:
+                list_dicts = [obj.to_dictionary() for obj in list_objs]
+                jsonfile.write(Base.to_json_string(list_dicts))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """load a json string """
+        if json_string is None or json_string == "":
             return []
         else:
-            text = Base.to_json_string(list_objs)
-            with open("{}.json".format(cls.__name__), "w", enconding="UTF-8") as f:
-                f.write(text)
+            return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ create a dummy obj"""
+        dummy = cls(1, 1)
+        dummy.update(**dictionary)
+        return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """ load json str from a jsonfile"""
+        filename = cls.__name__ + ".json"
+        if not filename:
+            return []
+        else:
+           with open(filename, "r", encoding="UTF-8") as f:
+               read_json = f.read()
+               dict_list = Base.from_json_string(read_json)
+               return [cls.create(**d) for d in dict_list]
