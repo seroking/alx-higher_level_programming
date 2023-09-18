@@ -41,8 +41,9 @@ class Rectangle(Base):
 
     def __str__(self):
         """  representation str """
-        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                self.x, self.y, self.width, self.height))
+        return ("[{}] ({}) {}/{} - {}/{}".format(
+                self.__class__.__name__, self.id, self.x, self.y,
+                self.width, self.height))
 
     def area(self):
         """ return the area of the rectangle"""
