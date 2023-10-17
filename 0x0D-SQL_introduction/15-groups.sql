@@ -1,7 +1,11 @@
 -- group
 
-SELECT score, COUNT(*) as count
-FROM second_table
-GROUP BY score
-HAVING count > 1
-ORDER BY count DESC;
+SELECT
+    score,
+    COUNT(*) AS number
+FROM
+    second_table
+GROUP BY
+    score
+ORDER BY
+    number DESC;
