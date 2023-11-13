@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
-const args = process.argv.slice(2);
-let arg_l = args.length;
+const args = process.argv;
+let arg_l = args.length - 2;
 
 if (arg_l === 0)
 {
