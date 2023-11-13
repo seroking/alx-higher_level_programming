@@ -5,4 +5,4 @@ while (args[count] !== undefined)
 {
   count++;
 }
-console.log(count === 2 ? 'No argument' : args[2])
+console.log(count === 2 ? 'No argument' : args[2]);
