@@ -1,5 +1,5 @@
 #!/usr/bin/node
 
-const args = process.argv.length - 2;
+const args_l = process.argv.length - 2;
 
-console.log(count === 0 'No argument' : count === 1 'Argument found' : 'Arguments found')
+console.log(args_l === 0 'No argument' : args_l === 1 'Argument found' : 'Arguments found')
