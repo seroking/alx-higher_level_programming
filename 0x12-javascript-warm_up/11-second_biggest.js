@@ -1,5 +1,5 @@
 #!/usr/bin/node
-function findSecondLargest(args) {
+function findSecondLargest (args) {
   if (args.length <= 2) {
     console.log(0);
     return;
@@ -18,10 +18,5 @@ function findSecondLargest(args) {
   }
   console.log(secondLargest !== -Infinity ? secondLargest : 0);
 }
-let args = process.argv;
+const args = process.argv;
 findSecondLargest(args);
-
-
-
-
-
