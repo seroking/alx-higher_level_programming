@@ -12,4 +12,4 @@ function sec (numbers) {
   });
   return (nums[nums.length - 2]);
 }
-  console.log(sec(process.argv));
+console.log(sec(process.argv));
