@@ -7,6 +7,7 @@ class Rectangle {
       this.height = h;
     }
   }
+
   print () {
     let figure = '';
     for (let i = 0; i < this.width; i++) {
