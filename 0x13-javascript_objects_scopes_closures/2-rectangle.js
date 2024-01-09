@@ -2,8 +2,10 @@
 
 class Rectangle {
   constructor (w, h) {
-    width = w;
-    height = h;
+    if (w < 0 && h < 0) {
+      width = w;
+      height = h;
+    }
   }
 }
 module.exports = Rectangle;
