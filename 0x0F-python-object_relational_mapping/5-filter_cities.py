@@ -16,7 +16,11 @@ if __name__ == "__main__":
         port=3306)
 
     cur = db.cursor()
-    query = "SELECT cities.name FROM cities JOIN states ON cities.state_id = states.id WHERE states.name = %s"
+    query = "SELECT cities.name\
+            FROM cities\
+            JOIN states ON cities.state_id = states.id\
+            WHERE states.name = %s"\
+            order by cities.id ASC"
     cur.execute(query, (argv[4],))
     cities = cur.fetchall()
 
@@ -33,4 +37,3 @@ if __name__ == "__main__":
 
     cur.close()
     db.close()
-
