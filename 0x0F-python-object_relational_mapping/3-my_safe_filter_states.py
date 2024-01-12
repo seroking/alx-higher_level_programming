@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+displays all values in the states table
+where name matches the argument
+write one that is safe from MySQL injections!
+"""
 
 from sys import argv
 import MySQLdb
@@ -21,6 +26,5 @@ if __name__ == "__main__":
 
     for state in states:
         print(state)
-
 
     cur.close()
