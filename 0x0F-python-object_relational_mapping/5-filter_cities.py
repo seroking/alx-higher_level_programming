@@ -18,13 +18,13 @@ if __name__ == "__main__":
     cur = db.cursor()
     query = "SELECT cities.name\
             FROM cities\
-            JOIN states ON cities.state_id = states.id\
+            inner JOIN states ON cities.state_id = states.id\
             WHERE states.name = %s"\
             order by cities.id ASC"
     cur.execute(query, (argv[4],))
     cities = cur.fetchall()
 
-    row = sql_cm.fetchall()
+    row = cur.fetchall()
 
     if not row:
         print("")
