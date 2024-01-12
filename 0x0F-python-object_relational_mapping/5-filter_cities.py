@@ -20,8 +20,16 @@ if __name__ == "__main__":
     cur.execute(query, (argv[4],))
     cities = cur.fetchall()
 
-    city_names = ', '.join(city[0] for city in cities)
-    print(city_names)
+    row = sql_cm.fetchall()
+
+    if not row:
+        print("")
+
+    for i in range(len(row)):
+        if i == len(row) - 1:
+            print(row[i][0])
+        else:
+            print(row[i][0], end=", ")
 
     cur.close()
     db.close()
