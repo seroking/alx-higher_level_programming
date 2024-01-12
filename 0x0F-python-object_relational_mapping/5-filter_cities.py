@@ -23,7 +23,6 @@ if __name__ == "__main__":
             ORDER BY cities.id ASC"
 
     cur.execute(query, (argv[4],))
-    cities = cur.fetchall()
 
     row = cur.fetchall()
 
