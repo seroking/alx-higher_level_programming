@@ -13,8 +13,9 @@ if __name__ == "__main__":
         argv[1],
         argv[2],
         argv[3]))
-    conn = engine.connect()
-    result = conn.execute('SELECT * FROM states ORDER BY id')
+
+    with engine.connect() as conn:
+        result = conn.execute('SELECT * FROM states ORDER BY id')
 
     for row in result.fetchall():
         print("{}: {}".format(row['id'], row['name']))
