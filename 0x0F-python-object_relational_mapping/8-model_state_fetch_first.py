@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+print the first state object
+"""
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from sys import argv
