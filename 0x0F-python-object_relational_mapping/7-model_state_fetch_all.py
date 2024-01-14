@@ -12,10 +12,14 @@ if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
         argv[1],
         argv[2],
-        argv[3], pool_pre_ping=True))
+        argv[3]))
 
-    with engine.connect() as conn:
-        result = conn.execute('SELECT * FROM states ORDER BY id')
+    Session.configure(bind=engine)
+    session = Session()
 
-    for row in result.fetchall():
-        print("{}: {}".format(row['id'], row['name']))
+    states = session.query(State).order_by(State.id).all()
+
+    for state in states:
+        print("{}: {}".format(state.id, state.name))
+
+    session.close()
